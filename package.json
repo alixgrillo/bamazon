@@ -1,0 +1,24 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Store Front Purchasing App",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alixgrillo/bamazon.git"
+  },
+  "author": "Alix Grillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alixgrillo/bamazon/issues"
+  },
+  "homepage": "https://github.com/alixgrillo/bamazon#readme",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "inquirer": "^7.0.1",
+    "mysql": "^2.17.1"
+  }
+}
