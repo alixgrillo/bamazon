@@ -25,14 +25,11 @@ function start() {
             head: ['Product ID', 'Product Name', 'Department', 'Price'],
             colWidths: [20, 25, 25, 25]
         });
-        // var prodArr = [];
+ 
         for (var i = 0; i < results.length; i++) {
             table.push(
                 [results[i].item_id, results[i].product_name, results[i].department_name, "$" + results[i].price]
             );
-            // prodArr.push({
-            //     id: results[i].item_id,
-            //     name: results[i].product_name
         };
 
         console.log(table.toString());
