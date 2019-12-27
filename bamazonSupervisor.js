@@ -1,6 +1,10 @@
+require("dotenv").config();
+
 var inquirer = require('inquirer');
 var mysql = require('mysql');
 var Table = require('cli-table');
+
+var password = process.env.SQL_PASSWORD;
 
 var connection = mysql.createConnection({
     host: "localhost",
