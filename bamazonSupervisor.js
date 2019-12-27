@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: 'root',
-    password: 'R2wwsi!!',
+    password: password,
     database: 'bamazon_db'
 });
 
@@ -44,7 +44,7 @@ function start() {
 }
 
 function viewProductsByDept(){
-    connection.query("SELECT d.department_id, d.department_name, d.over_head_costs, p.product_sales, (SUM(p.product_sales) - d.over_head_costs) AS total_profit FROM products p JOIN departments d WHERE p.department_name = d.department_name GROUP BY d.department_id;", function (err, results) {
+    connection.query("SELECT d.department_id, d.department_name, d.over_head_costs, SUM(p.product_sales) AS product_sales, (SUM(p.product_sales) - d.over_head_costs) AS total_profit FROM products p RIGHT JOIN departments d ON p.department_name = d.department_name GROUP BY d.department_id;", function (err, results) {
         if (err) throw err;
         var table = new Table({
             dafaultOnValue: 0,
@@ -53,8 +53,12 @@ function viewProductsByDept(){
             colWidths: [20, 20, 20, 20, 20]
         });
         for (var i = 0; i < results.length; i++) {
+            var prodSales = results[i].product_sales;
+            if(prodSales === null){prodSales=0;}
+            var totProfit = results[i].total_profit;
+            if(totProfit === null){totProfit=prodSales - results[i].over_head_costs;}
             table.push(
-                [results[i].department_id, results[i].department_name, "$" + results[i].over_head_costs, "$" + results[i].product_sales, "$" + results[i].total_profit]
+                [results[i].department_id, results[i].department_name, "$" + results[i].over_head_costs, "$" + prodSales, "$" + totProfit]
             );
         };
         console.log('\n'+table.toString());
