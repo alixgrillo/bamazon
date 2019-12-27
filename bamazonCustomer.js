@@ -57,6 +57,8 @@ function sellProduct() {
         ]).then(function (answer) {
             var prodID = answer.product.slice(0, 5);
             var prodQuantity = 0;
+            var prodPrice = 0;
+            var previousSales = 0;
             if (answer.product === "Stop Shopping!") {
                 connection.end();
                 return
@@ -71,12 +73,15 @@ function sellProduct() {
                 connection.query('SELECT * FROM products WHERE item_id = ?', [prodID], function (err, result) {
                     if (err) throw err;
                     prodQuantity = result[0].stock_quantity;
+                    prodPrice = result[0].price;
+                    previousSales = result[0].product_sales;
                     if (prodQuantity - quantityAnswer.quantity < 0) {
                         console.log("Insufficient Quantity");
                         sellProduct();
                     } else {
-                        connection.query('UPDATE products SET stock_quantity=? WHERE item_id=?',
-                            [prodQuantity - quantityAnswer.quantity, prodID], function (err, result) {
+                        var newSales = quantityAnswer.quantity * prodPrice + previousSales;
+                        connection.query('UPDATE products SET stock_quantity=?, product_sales=? WHERE item_id=?',
+                            [prodQuantity - quantityAnswer.quantity, newSales, prodID], function (err, result) {
                                 if (err) throw err;
                                 console.log("Purchase successful");
                                 sellProduct();
