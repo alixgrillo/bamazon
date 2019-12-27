@@ -25,7 +25,6 @@ function start(){
             name: 'managerTask'
         }
     ]).then(function(answer){
-        console.log(answer.managerTask);
         switch(answer.managerTask){
             case 'View Products for Sale':
                 viewProducts();

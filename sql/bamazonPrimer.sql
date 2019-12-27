@@ -25,3 +25,7 @@ VALUE
 ALTER TABLE products
 ADD COLUMN product_sales DECIMAL(10,2) NOT NULL DEFAULT 0;
 
+SELECT d.department_id, d.department_name, d.over_head_costs, p.product_sales
+FROM products p JOIN departments d WHERE p.department_name = d.department_name
+GROUP BY d.department_id;
+
