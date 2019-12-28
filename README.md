@@ -25,43 +25,39 @@ Start the program by running `node bamazonCustomer.js` in the command line in th
 the results of each function.
 
 * View and decide which product to buy
-<!-- <img src="/images/movie-input.gif"> -->
-
-* Specify how many to buy
-<!-- <img src="/images/movie-no-input.gif"> -->
+<img src="/images/purchase-product.gif">
 
 * Purchase Successful
-<!-- <img src="/images/concert-input.gif"> -->
+<img src="/images/purchase-successful.gif">
 
 * Insufficient Quantity
-<!-- <img src="/images/concert-no-input.gif"> -->
+<img src="/images/purchase-unsuccessful.gif">
 
 ### Manager View
 Start the program by running `node bamazonManager.js` in the command line in the directory of the file. The following screenshots show
 the results of each function.
+
 * View Products for Sale
-<!-- <img src="/images/song-input.gif"> -->
+<img src="/images/manager-view.gif">
 
 * View Low Inventory
-<!-- <img src="/images/song-no-input.gif"> -->
+<img src="/images/manager-view-low.gif">
 
 * Add Inventory
-<!-- <img src="/images/random.gif"> -->
+<img src="/images/manager-add-inventory.gif">
 
 * Add a New Product
-<!-- <img src="/images/log.gif"> -->
-
-* View Products for Sale showing New Product
-<!-- <img src="/images/log.gif"> -->
+<img src="/images/manager-add-product.gif">
 
 ### Supervisor View
 Start the program by running `node bamazonSupervisor.js` in the command line in the directory of the file. The following screenshots show the results of each function. Note: the supervisor table is a `JOIN` between two tables - I considered this a `RIGHT JOIN` favoring
 the departments so that all departments would be shown regardless if they have any registered products.
+
 * View Products for Sale by Department
-<!-- <img src="/images/song-input.gif"> -->
+<img src="/images/supervisor-view.gif">
 
 * Add New Department
-<!-- <img src="/images/song-no-input.gif"> -->
+<img src="/images/supervisor-add.gif">
 
 ## Technical Features
 * This is a command-line only application.
