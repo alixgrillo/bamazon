@@ -77,7 +77,7 @@ In order to run, you will want to prime your database:
 
    * Step Three: To prime the database with some initial data, run `bamazonPrimer.sql`. This will load 10 initial products and 4 initial departments.
 
-  * Step Five: Create a file named `.env`, add the following to it, replacing the comment with your `root` password to MySQL (no quotes):
+  * Step Four: Create a file named `.env`, add the following to it, replacing the comment with your `root` password to MySQL (no quotes):
 
 ```js
 # SQL Password
